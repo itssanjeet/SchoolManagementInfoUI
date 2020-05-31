@@ -1,0 +1,66 @@
+<div class="row card-header">
+    <div class="col-md-10"></div>
+    <div class="col-md-2">
+        <span>Hello {{user? user.firstName:''}}</span>
+        <button class="btn btn-primary btn-sm" *ngIf="loginService.isLoggedIn" style="float: right;"
+            (click)="logout()">logout</button>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 offset-md-10 card">
+            <span>Role / {{user? user.role:'user'}}</span>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row  mt-2">
+        <div class="col-md-2">
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                                aria-expanded="true" aria-controls="collapseOne">
+                                Users
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                        data-parent="#accordionExample">
+                        <div>
+                            <ul class="no-bullets">
+                                <li><button class="btn btn-link" type="button" (click)="getAllAdmins()">Admin</button>
+                                </li>
+                                <li><button class="btn btn-link" type="button"
+                                        (click)="getAllTeachers()">Teachers</button></li>
+                                <li><button class="btn btn-link" type="button"
+                                        routerLink="./student">Students</button></li>
+                                <li><button class="btn btn-link" type="button" routerLink="./admin">All
+                                        Users</button></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Others
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <ul class="no-bullets">
+                            <li><button class="btn btn-link" type="button">All Users</button></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

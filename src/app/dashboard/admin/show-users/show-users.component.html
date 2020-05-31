@@ -1,0 +1,28 @@
+<div class="col-md-12" *ngIf="allUsers">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Email</th>
+                <th scope="col">Username</th>
+                <th scope="col">Role</th>
+                <th scope="col">Edit</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let u of allUsers">
+            <tr>
+                <th scope="row">{{u.user_id}}</th>
+                <td>{{u.firstName}}</td>
+                <td>{{u.lastName}}</td>
+                <td>{{u.email}}</td>
+                <td>{{u.username}}</td>
+                <td>{{u.role}}</td>
+                <td><button class="btn btn-link" type="button" routerLink="../edit-user"
+                        [queryParams]="{ user_id: u.user_id}">Edit</button></td>
+            </tr>
+        </tbody>
+        <span *ngIf="allUsers.length=='0'">No Records...</span>
+    </table>
+</div>
